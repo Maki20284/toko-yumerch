@@ -67,6 +67,11 @@ export default function Login() {
             </div>
             <button className="w-full py-3 rounded-xl bg-ink-900 hover:bg-brand-600 text-white font-semibold transition">Login</button>
           </form>
+
+          <div className="mt-5 text-xs text-slate-500 bg-slate-50 border border-slate-200 rounded-xl p-3">
+            <p className="font-semibold text-slate-600 mb-1">Akun demo:</p>
+            admin / admin123 &nbsp;·&nbsp; owner / owner123 &nbsp;·&nbsp; staff / staff123
+          </div>
         </div>
       </div>
     </div>

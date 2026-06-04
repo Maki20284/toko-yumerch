@@ -24,6 +24,14 @@ export async function api(path, { method = 'GET', body } = {}) {
   try { data = await res.json(); } catch { /* respons tanpa body */ }
 
   if (!res.ok) {
+    if (res.status === 401) {
+      // sesi tidak valid / kedaluwarsa -> bersihkan dan kembali ke login
+      setToken(null);
+      localStorage.removeItem('yumerch_user');
+      if (!window.location.pathname.startsWith('/login')) {
+        window.location.href = '/login';
+      }
+    }
     const message =
       data?.message ||
       (data?.errors ? Object.values(data.errors)[0][0] : 'Terjadi kesalahan pada server.');

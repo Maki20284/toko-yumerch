@@ -80,7 +80,16 @@ export const inputCls =
   'w-full rounded-xl border border-slate-300 px-4 py-2.5 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none transition';
 
 /* ---------- Status badge ---------- */
-export function StatusBadge({ status }) {
+export function StatusBadge({ status, stok }) {
+  // Peringatan: tersedia tapi stok menipis (< 10)
+  if (status === 'tersedia' && typeof stok === 'number' && stok < 10) {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full bg-amber-100 text-amber-700">
+        <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
+        Stok Menipis
+      </span>
+    );
+  }
   const ok = status === 'tersedia';
   return (
     <span className={`inline-flex items-center gap-1.5 text-xs font-semibold px-2.5 py-1 rounded-full ${ok ? 'bg-brand-100 text-brand-700' : 'bg-rose-100 text-accent-600'}`}>

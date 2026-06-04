@@ -68,7 +68,7 @@ export default function Persediaan() {
                 <td className="py-3 px-3 text-center">
                   <span className={`font-bold ${b.stok < 10 ? 'text-amber-600' : 'text-ink-900'}`}>{b.stok}</span>
                 </td>
-                <td className="py-3 px-3 text-center"><StatusBadge status={b.status} /></td>
+                <td className="py-3 px-3 text-center"><StatusBadge status={b.status} stok={b.stok} /></td>
                 <td className="py-3 px-3">
                   <div className="flex items-center justify-center gap-2">
                     <button onClick={() => openModal('masuk', b)}

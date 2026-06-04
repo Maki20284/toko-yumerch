@@ -79,7 +79,7 @@ export default function Barang() {
                 <td className="py-3 px-3 text-slate-600">{kategoriName(b.id_kategori)}</td>
                 <td className="py-3 px-3 text-slate-600">{rupiah(b.harga)}</td>
                 <td className="py-3 px-3 text-center font-bold">{b.stok}</td>
-                <td className="py-3 px-3 text-center"><StatusBadge status={b.status} /></td>
+                <td className="py-3 px-3 text-center"><StatusBadge status={b.status} stok={b.stok} /></td>
                 <td className="py-3 px-3">
                   <div className="flex items-center justify-center gap-1.5">
                     <button onClick={() => setDetail(b)} className="p-2 rounded-lg hover:bg-slate-100 text-slate-500"><Eye size={16} /></button>
@@ -123,7 +123,7 @@ export default function Barang() {
             <Row label="Kategori" value={kategoriName(detail.id_kategori)} />
             <Row label="Harga" value={rupiah(detail.harga)} />
             <Row label="Stok" value={detail.stok} />
-            <Row label="Status" value={<StatusBadge status={detail.status} />} />
+            <Row label="Status" value={<StatusBadge status={detail.status} stok={detail.stok} />} />
           </dl>
         )}
       </Modal>
